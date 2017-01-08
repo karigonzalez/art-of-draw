@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Of Draw</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Gochi+Hand|Indie+Flower|Rufina|Sanchez|Raleway" rel="stylesheet">
+
+    <!--CSS BOOSTRAP-->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/main.css">
+    <link href="css/reset.css" rel="stylesheet"  />
+    <link href="css/main3.css" rel="stylesheet" media="screen" />
+</head>
+<body>
+    <!--INICIO-->
+    <header>
+	    <div class="menu">
+			<a href="#inicio">Inicio</a>
+			<a href="#galeria">Galeria</a>
+			<a href="#paint">Empieza a Dibujar</a>
+			<a href="#comentarios">Déjanos tu comentario</a>
+			<div class="marca"></div>
+        </div>   	
+		<div id="#inicio" class="pb-6">
+            <div class="container text-center">
+                <img src="img/logos.png" alt="" class="text-center logo">
+                <br>
+                <h2 class="title">¡Expresa tu creatividad libremente!</h2>
+                <br>
+                <button class="btn btn-lg btn-danger"><a href="#galeria"><i class="boton glyphicon glyphicon-chevron-down"></i></a></button>
+            </div>
+        </div>
+    </header>
+    <!--GALERIA-->
+    <section id="galeria" class="text-center">
+        <h2 class="title-galeria">GALERIA</h2>
+        <p class="text">Algunos dibujos de nuestros artistas</p>
+        <div class="col-lg-2 pintura">
+        	<img src="img/pintura.png">
+        </div>
+        <div class="col-lg-2 lienzo">
+        	<img src="img/lienzo.png">
+        </div>
+        <div id="slideShowContainer">
+            <div id="slideShow">
+            	<ul>
+                	<li><img src="img/photos/1.jpg" width="100%" /></li>
+                    <li><img src="img/photos/2.jpg" width="100%"/></li>
+                    <li><img src="img/photos/3.jpg" width="100%" /></li>
+                    <li><img src="img/photos/4.jpg" width="100%"  /></li>
+                </ul>
+            </div>  
+            <a id="previousLink" href="#">&raquo;</a>
+            <a id="nextLink" href="#">&laquo;</a>
+        </div>
+    </section>
+	<section id="paint">
+		<div id="container">
+		    <h2 class="text-center title-paint">¡HORA DE DIBUJAR!</h2>
+            <p class="text-center text">Empieza a sacar tu lado creativo.</p>
+			<canvas id="canvas"></canvas>
+			<!-- /canvas -->
+			<div id="config">
+				<span class="top">Hora de dibujar</span>
+				<ul id="config_in">
+					<li>
+						Herramientas:
+						<p>
+							<select id="herramientas">
+								<option selected="selected">Pincel</option>
+								<option>Texto</option>
+							</select>
+						</p>
+					</li>
+					<li id="txt">
+						Texto:
+						<p>
+							<input type="text" id="valor_t" placeholder="escribe aqu&iacute; tu texto">
+							<select id="texto">
+								<option selected="selected">Arial</option>
+								<option>Verdana</option>
+								<option>Impact</option>
+								<option>Comic Sans</option>
+							</select>
+						</p>
+					</li>
+					<li>
+						tama&ntilde;o: <span id="n_range">5</span>
+						<p>
+							<input type="range" id="rr" min="1" max="100" value="5"><!-- #rr es el valor -->
+						</p>
+					</li><!-- tamaño -->
+					<li>
+						Color: <input id="color" name="color" type="color" value='#000000'>
+					</li>
+					<li>
+						Color de fondo: <input id="bg_color" name="bg_color" type="color" value='#ffffff'>
+					</li>
+					<li>
+					    Borrar todo:
+						<button id="borrador"><img src="img/borrador.png"></button>
+					</li>
+					<li>
+						<button id="jpeg">Guarda tu obra de arte</button>
+					</li>
+				</ul>
+			</div><!-- /config -->
+			<div id="c"></div>
+			<div id="bg_c"></div>
+		</div>	
+	</section>
+	<!--COMENTARIOS-->
+    <section class="hgt-66 text-center bgComentario" id="comentarios">
+       <div class="container">
+           <h2 class="tittle-coment">DÉJANOS TU COMENTARIO</h2>
+           <div class="container">
+               <form action="#" id="form" class="well text-center">
+                   <textarea name="mensaje" placeholder="Deja tu comentario..." id="texto" type="text" class="form-control"></textarea>
+                   <div>
+                       <button class="text-left btn btn-info" type="submit" id="resultado" name="comentar">Comentar</button>
+                       <span id="contar" class="text-right contador">140</span>
+                   </div>
+               </form>
+               <div id="comentario" class="well"></div>
+           </div>           
+       </div>
+    </section>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+	<script src="js/jquery.rotate.js"></script>
+	<script src="js/script.js"></script>
+    <script src="js/paint.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+</body>
+</html>
