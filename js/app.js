@@ -1,5 +1,5 @@
-/*---------------------------PARA HACER PAINT-COMENTARIO-MUÑECO----------------------*/
-window.addEventListener("load", function () {
+window.addEventListener("load", function (e) {
+    e.preventDefault();
     var boton = document.getElementById("resultado");
     var textArea = document.getElementById("texto");
 
