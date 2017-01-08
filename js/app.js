@@ -1,11 +1,22 @@
-window.addEventListener("load", function (e) {
-    e.preventDefault();
-    var boton = document.getElementById("resultado");
-    var textArea = document.getElementById("texto");
+window.addEventListener("load", function() {
+  var boton = document.getElementById("resultado");
+  var textArea = document.getElementById("text");
+  var contar = document.getElementById("contar");
 
-    var contar = document.getElementById("contar");
-    
-    function agregarMensaje(texto) {
+  boton.addEventListener("click", function(e){
+    e.preventDefault();
+    var texto = textArea.value;
+            agregarMensaje(texto);
+            textArea.value ="";
+            boton.disabled= true;
+            contar.textContent= "140";
+            textArea.style.height = "50px";
+
+
+
+    }); 
+
+    function agregarMensaje(texto){
         var nuevoItem = document.createElement("div");
         var hora = document.createElement("div");
         var fechaHora = new Date();
@@ -13,52 +24,53 @@ window.addEventListener("load", function (e) {
         var minutos = fechaHora.getMinutes();
         var segundos = fechaHora.getSeconds();
 
-        if (horas < 10) {
-            horas = "0" + horas;
+        if(horas < 10){ 
+          horas = "0" + horas; 
         }
 
-        if (minutos < 10) {
-            minutos = "0" + minutos;
-        }
+       if(minutos < 10) {
+         minutos = "0" + minutos; 
+       }
 
-        if (segundos < 10) {
-            segundos = "0" + segundos;
-        }
+       if(segundos < 10){ 
+        segundos = "0" + segundos; 
+       }
 
-        hora.textContent = horas + ":" + minutos + ":" + segundos;
+       hora.textContent = horas + ":" + minutos + ":" + segundos;
 
         nuevoItem.classList.add("texto");
         hora.classList.add("hora");
-        nuevoItem.innerHTML = texto;
+        nuevoItem.innerHTML =texto;
 
-        var lista = document.getElementById("comentario");
-        lista.insertBefore(hora, comentario.childNodes[0]);
-        lista.insertBefore(nuevoItem, comentario.childNodes[0]);
-        document.getElementById("texto").value = "";
-    }
+       var lista = document.getElementById("comentario");
+       lista.insertBefore(hora, comentario.childNodes[0]);
+       lista.insertBefore(nuevoItem, comentario.childNodes[0]);
+       document.getElementById("texto").value = "";
+    }  
 
-    textArea.addEventListener("keyup", function () {
-        var longitud = 140;
-        var caracter = textArea.value.length;
-        contar.innerText = longitud - caracter;
-        textArea.style.height = "10px";
-        textArea.style.height = (25 + textArea.scrollHeight) + "px";
+    textArea.addEventListener("keyup", function(){
+      var longitud = 140;
+      var caracter = textArea.value.length;
+      contar.innerText = longitud - caracter;      
+      textArea.style.height = "10px";
+      textArea.style.height = (25+textArea.scrollHeight)+"px";
 
-        if (parseInt(contar.innerText) <= 0) {
-            boton.disabled = true;
-        } else {
-            boton.disabled = false;
-        }
+      if(parseInt(contar.innerText) <= 0){
+        boton.disabled=true;
+      } else {
+        boton.disabled=false;
+      }
 
-        if (parseInt(contar.innerText) <= 20) {
-            contar.style.color = "#B80D57";
-        } else {
-            contar.style.color = "#000000";
-        }
+      if(parseInt(contar.innerText) <= 20){
+         contar.style.color ="#B80D57";
+      } else{
+         contar.style.color ="#000000";
+      }
 
-        if (parseInt(contar.innerText) <= 10) {
-            contar.style.color = "#986EAD";
-        }
-    });
-    
+      if(parseInt(contar.innerText) <= 10){
+        contar.style.color ="#986EAD";
+      }
+
+     });
+     
 });
